@@ -1,22 +1,56 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword(){
-console.log('you clicked the button');
+function generatePassword(lower, upper, number, symbol, length) {
 
-//prompt user for password criteria
-//  1.password length between 8 and 128
-//  2. Lowercase, uppercase, numbers and special characters
-//  3. validate input is correct (true)
-//  4. generate password based on given criteria
+  let generatedpassword= '';
 
+  const typesCount = lower+upper+number+symbol;
 
+  const typesArray = [lower, upper, number, symbol];
 
-//  5. display password on screen.
-
-
-return "Generator Password goes here dude"; // this will return the generated password
 }
+
+// Generate Criteria Code
+
+// 1. prompt user for password criteria
+//  a.password length between 8 and 128
+//  b. Lowercase, uppercase, numbers and special characters
+
+// 2. validate input is correct (true)
+// 3. generate password based on given criteria
+
+// 4. display password on screen.
+ // this will return the generated password
+
+ const randomFunc = {lower:getLowerCase, 
+  upper:getUppercase, 
+  number:getNumber, 
+  symbol:getSymbol}; 
+
+
+function getLowerCase(){
+
+  return String.fromCharCode(Math.floor(Math.random()*26)+ 97);
+}
+
+function getUpperCase(){
+
+  return String.fromCharCode(Math.floor(Math.random()*26)+ 65);
+}
+
+function getNumber(){
+
+  return String.fromCharCode(Math.floor(Math.random()*10)+ 48);
+}
+
+function getSymbol(){
+
+  const specialsymbols = '!@#$%^&*(){}[]=<>/,.';
+  return specialsymbols[Math.floor(Math.random()* specialsymbols.length)];
+}
+
+
 
 // Write password to the #password input
 function writePassword() {
