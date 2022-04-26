@@ -4,6 +4,8 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword(){
 console.log('you clicked the button');
 
+
+
 return "Generator Password goes here dude"; // this will return the generated password
 }
 
