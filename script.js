@@ -1,10 +1,11 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword() {
-  var buf = new Uint8Array(characterLength);
-    window.crypto.getRandomValues(buf);
-    return btoa(String.fromCharCode.apply(null, buf));
+const includeUppercase
+const
+
+function generatePassword(characterAmount, includeUppercase, includeLowercase, includeNumbers, includeSymbols) {
+ 
 
 }
 
