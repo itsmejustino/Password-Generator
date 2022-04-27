@@ -1,13 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function generatePassword(lower, upper, number, symbol, length) {
+function generatePassword() {
 
-  let generatedpassword= '';
-
-  const typesCount = lower+upper+number+symbol;
-
-  const typesArray = [lower, upper, number, symbol];
+  
 
 }
 
@@ -23,32 +19,6 @@ function generatePassword(lower, upper, number, symbol, length) {
 // 4. display password on screen.
  // this will return the generated password
 
- const randomFunc = {lower:getLowerCase, 
-  upper:getUppercase, 
-  number:getNumber, 
-  symbol:getSymbol}; 
-
-
-function getLowerCase(){
-
-  return String.fromCharCode(Math.floor(Math.random()*26)+ 97);
-}
-
-function getUpperCase(){
-
-  return String.fromCharCode(Math.floor(Math.random()*26)+ 65);
-}
-
-function getNumber(){
-
-  return String.fromCharCode(Math.floor(Math.random()*10)+ 48);
-}
-
-function getSymbol(){
-
-  const specialsymbols = '!@#$%^&*(){}[]=<>/,.';
-  return specialsymbols[Math.floor(Math.random()* specialsymbols.length)];
-}
 
 
 
