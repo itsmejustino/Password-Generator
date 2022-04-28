@@ -13,7 +13,7 @@
 // 4. display password on screen.
 // this will return the generated password
 
-
+//idea and resources from Web Dev Simplify on Youtube and Google searches
 
 
 var generateBtn = document.querySelector("#generate");
@@ -27,7 +27,7 @@ const value = passwordLength.value;
 // listener for password criteria.
 form.addEventListener('submit', d =>{  
 
-//default values for unselcted values. idea and resource from Web Dev Simplify on youtube
+//default values for unselcted values. 
 d.preventDefault();
 
 const passwordLength = passwordLengthNumber.value;
@@ -47,7 +47,7 @@ function generatePassword(addSymbols, passwordLength,addLowercase,addUppercase,a
 
 }
 
-function arraySmallertoLarger(smaller, larger){
+function arrayCharSet(smaller, larger){
 for(var i = smaller, i <= larger , i++;){
 
   array.push(i);
@@ -56,11 +56,6 @@ for(var i = smaller, i <= larger , i++;){
 return array;
 
 }
-
-
-
-
-
 
 // Write password to the #password input
 function writePassword() {
