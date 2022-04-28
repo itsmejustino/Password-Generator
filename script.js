@@ -5,7 +5,7 @@ const addLowercase = document.getElementById('addLowercase');
 const addUppercase= document.getElementById('addUppercase');
 const addNumbers = document.getElementById('addNumbers');
 const addSymbols = document.getElementById('addSymbols');
-
+const value = passwordLength.value;
 
 form.addEventListener('submit', e =>{  e.preventDefault();
 
@@ -14,17 +14,25 @@ const addLowercase = addLowercaseElement.checked;
 const addUppercase = addUppercaseElement.checked;
 const addNumbers = addNumbersElement.checked;
 const addSymbols = addSymbolsElement.checked;
-const thisPassword = generatePassword(passwordLength, addLowercase, addUppercase, addNumbers, addSymbols)
+const thisPassword = generatePassword(passwordLength, addLowercase, addUppercase, addNumbers, addSymbols);
 
 })
 
-function generatePassword(passwordLength,addLowercase,addUppercase,addNumbers,addSymbols) {
+function generatePassword(addSymbols, passwordLength,addLowercase,addUppercase,addNumbers) {
 
-  String.fromCharCode
+  String.fromCharCode(65);
 
 }
 
+function arraySmallertoLarger(smaller, larger){
+for(let i = smaller, i <= larger , i++){
+  
+  array.push(i);
+}
 
+return array;
+
+}
 
 
 
