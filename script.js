@@ -1,65 +1,83 @@
 // Assignment Code
-
-//To-do's
-//  Generate Password with user selected criteria
-
-// 1. prompt user for password criteria using checkboxes
-//  a.password length needs to be between 8 and 128
-//  b. Lowercase, uppercase, numbers and special characters
-
-// 2. validate input is wanted or not wanted (true or false)
-// 3. generate password based on given criteria
-
-// 4. display password on screen.
-// this will return the generated password
-
-//idea and resources from Web Dev Simplify on Youtube and Google searches
-
-
 var generateBtn = document.querySelector("#generate");
-const passwordLength = document.getElementById('passwordLength')
-const addLowercase = document.getElementById('addLowercase');
-const addUppercase= document.getElementById('addUppercase');
-const addNumbers = document.getElementById('addNumbers');
-const addSymbols = document.getElementById('addSymbols');
-const value = passwordLength.value;
 
-// listener for password criteria.
-form.addEventListener('submit', d =>{  
+//Assign criteria to each variable
+var upperCase;
+var lowerCase;
+var includeNumbers;
+var specialChar;
+var choiceLength;
 
-//default values for unselcted values. 
-d.preventDefault();
-
-const passwordLength = passwordLengthNumber.value;
-const addLowercase = addLowercaseElement.checked;
-const addUppercase = addUppercaseElement.checked;
-const addNumbers = addNumbersElement.checked;
-const addSymbols = addSymbolsElement.checked;
-const thisPassword = generatePassword(passwordLength, addLowercase, addUppercase, addNumbers, addSymbols);
-
-})
+//store user input to new values
+var choiceLength = window.prompt("How many characters would you like between 8-128 characters? (Okay for Yes and Cancel to Start Over)");
+var upperCase = window.confirm("Would you like to generate a password with Upper case letters? (Okay for Yes and Cancel for No)");
+var lowerCase = window.confirm("Would you like to generate a password with Lower case letters? (Okay for Yes and Cancel for No)");
+var specChar = window.confirm("Would you like to generate a password with special characters? (Okay for Yes and Cancel for No)");
+var withNumbers = window.confirm("Would you like to generate a password with numbers? (Okay for Yes and Cancel for No)");
+var characterLength = choiceLength.value;
 
 
-//generate password from Charcode using iteration array with selected criteria
-function generatePassword(addSymbols, passwordLength,addLowercase,addUppercase,addNumbers) {
 
-  String.fromCharCode(65);
 
-}
 
-function arrayCharSet(smaller, larger){
-for(var i = smaller, i <= larger , i++;){
+function getRandomNumber (smaller, larger){
+  var array = []
+  for(let i = smaller; i <= larger; i++){
 
-  array.push(i);
-}
+    array.push(i)
+  }
+  
+  return array
+  
+  }
+  
 
-return array;
+const charUpperCase = Array.fromCharCode(getRandomNumber(65, 90));
+var charLowerCase = String.fromCharCode(getRandomNumber(97, 122));
+var charNumbers = String.fromCharCode(getRandomNumber(48, 57));
+var specialChar = String.fromCharCode(getRandomNumber(33, 47))
+    .concat(String.fromCharCode(getRandomNumber(58, 64)))
+    .concat(String.fromCharCode (getRandomNumber(91, 96)))
+    .concat(String.fromCharCode(getRandomNumber(123, 126)));
 
-}
 
-// Write password to the #password input
+
+
+
+function generatePassword(characterLength, charUpperCase, charLowerCase, specialChar){
+
+  console.log(characterLength)
+
+  if(upperCase && lowerCase && specChar && withNumbers && characterLength == true){
+    password = generatePassword(characterLength, charUpperCase, charLowerCase, specialChar)
+    
+    } else if(upperCase && lowerCase && specChar && withNumbers == false){
+     alert("Cannot make password with given criteria");
+    }
+    
+
+
+  //Condition for length of password 
+ //Upper Case condition
+ //lower Case condition
+  //number condition
+ //special Char condition
+
+ 
+ const passwordCharacters = []
+   for (let i = 0; i < characterLength; i++) {
+     const characterCode = charCodes[Math.floor(Math.random() * characterLength)];
+     characterLength.push(String.fromCharCode(characterCode))
+   }
+   return passwordCharacters.join('');
+   
+ }
+ 
+
+
 function writePassword() {
-  var password = generatePassword();// create function for password generate
+ var password = generatePassword();
+// Write password to the #password input
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
