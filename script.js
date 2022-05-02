@@ -6,7 +6,6 @@ var upperCase;
 var lowerCase;
 var includeNumbers;
 var specialChar;
-var choiceLength;
 
 //store user input to new values
 var choiceLength = window.prompt("How many characters would you like between 8-128 characters? (Okay for Yes and Cancel to Start Over)");
@@ -14,13 +13,13 @@ var upperCase = window.confirm("Would you like to generate a password with Upper
 var lowerCase = window.confirm("Would you like to generate a password with Lower case letters? (Okay for Yes and Cancel for No)");
 var specChar = window.confirm("Would you like to generate a password with special characters? (Okay for Yes and Cancel for No)");
 var withNumbers = window.confirm("Would you like to generate a password with numbers? (Okay for Yes and Cancel for No)");
-var characterLength = choiceLength.value;
+var characterLength = choiceLength;
 
 
 
 
 
-function getRandomNumber (smaller, larger){
+function smallerToLarger (smaller, larger, ){
   var array = []
   for(let i = smaller; i <= larger; i++){
 
@@ -32,13 +31,13 @@ function getRandomNumber (smaller, larger){
   }
   
 
-const charUpperCase = Array.fromCharCode(getRandomNumber(65, 90));
-var charLowerCase = String.fromCharCode(getRandomNumber(97, 122));
-var charNumbers = String.fromCharCode(getRandomNumber(48, 57));
-var specialChar = String.fromCharCode(getRandomNumber(33, 47))
-    .concat(String.fromCharCode(getRandomNumber(58, 64)))
-    .concat(String.fromCharCode (getRandomNumber(91, 96)))
-    .concat(String.fromCharCode(getRandomNumber(123, 126)));
+var charUpperCase = String.fromCharCode(smallerToLarger(65,90));
+var charLowerCase = String.fromCharCode(smallerToLarger(97, 122));
+var charNumbers = String.fromCharCode(smallerToLarger(48, 57));
+var specialChar = String.fromCharCode(smallerToLarger(33, 47))
+    .concat(String.fromCharCode(smallerToLarger(58, 64)))
+    .concat(String.fromCharCode (smallerToLarger(91, 96)))
+    .concat(String.fromCharCode(smallerToLarger(123, 126)));
 
 
 

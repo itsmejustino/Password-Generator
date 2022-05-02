@@ -118,15 +118,7 @@ button[disabled] {
   overflow: hidden;
 }
 
-.criteria {
-display: flex;
-grid-template-columns: auto auto;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-row-gap: 1rem;
-column-gap: 1rem;
-}
+
 
 @media (max-width: 690px) {
   .btn {
