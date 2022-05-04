@@ -6,11 +6,11 @@ var generateBtn = document.querySelector("#generate");
 // user input to select criteria for password length, case, special character, and numbers
 var choiceLength = window.prompt("How many characters would you like between 8-128 characters? (Okay for Yes and Cancel to Start Over)");
 //while loop checks for correct password length
-while (choiceLength < '8' && choiceLength > '128' ){
+while (choiceLength < 8 || choiceLength > 128 ){
   choiceLength = window.prompt("Your password length did not meet required criteria. Please enter a number between 8-128 characters.");
 
-  if(choiceLength>= '8' || choiceLength<= '128') {
-    break;
+  if(choiceLength>= 8 || choiceLength<= 128) {
+  
   
   }
 }
@@ -56,6 +56,21 @@ function generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumb
   //The boolean statements will be true or false depending on the user input. These booleans are to add or not add the Uppercase, lowercase, special characters, and numbers. .concat will include the Charcode sets.
   //assign default value to Startcode 
   var startCodes = LOWERCASE;
+
+  if(upperCase ==false && lowerCase == false && specChar == false && withNumbers == false){
+
+   startCodes = undefined;
+   alert("Cannot generate a password without criteria.");
+   return;
+   }
+  if(lowerCase==false){
+
+    startCodes = UPPERCASE;
+  }
+  if(upperCase == false){
+
+    startCodes = LOWERCASE;
+  }
 
   if(upperCase==true ){
     startCodes = startCodes.concat(UPPERCASE);
