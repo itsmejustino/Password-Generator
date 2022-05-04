@@ -5,16 +5,14 @@ var generateBtn = document.querySelector("#generate");
 
 // user input to select criteria for password length, case, special character, and numbers
 var choiceLength = window.prompt("How many characters would you like between 8-128 characters? (Okay for Yes and Cancel to Start Over)");
-
 //while loop checks for correct password length
-while (choiceLength < '8' || choiceLength > '128' ){
+while (choiceLength < '8' && choiceLength > '128' ){
   choiceLength = window.prompt("Your password length did not meet required criteria. Please enter a number between 8-128 characters.");
 
-  if(choiceLength> '7' || choiceLength< '129') {
+  if(choiceLength>= '8' || choiceLength<= '128') {
     break;
-    
+  
   }
-
 }
 var upperCase = window.confirm("Would you like to generate a password with Upper case letters? (Okay for Yes and Cancel for No)");
 var lowerCase = window.confirm("Would you like to generate a password with Lower case letters? (Okay for Yes and Cancel for No)");
@@ -57,10 +55,10 @@ function generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumb
 
   //The boolean statements will be true or false depending on the user input. These booleans are to add or not add the Uppercase, lowercase, special characters, and numbers. .concat will include the Charcode sets.
   //assign default value to Startcode 
-  var startCodes;
+  var startCodes = LOWERCASE;
 
   if(upperCase==true ){
-    startCodes = UPPERCASE;
+    startCodes = startCodes.concat(UPPERCASE);
   }
   
   if (lowerCase ==true){
@@ -79,24 +77,24 @@ function generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumb
   
 
   //for loop that will iterate through the characterCode array randomly to desired choiceLength then return the value to empty password array as a string. 
- var password = []
+ var passwordCharacters = []
   for (let i = 0; i < choiceLength; i++) {
     var characterCode = startCodes[Math.floor(Math.random() * startCodes.length)]
-    password.push(characterCode)
+    passwordCharacters.push(characterCode)
     }
      //returns value to generate password as string without separator
-    return password.join('');
+     return passwordCharacters.join('');
   }
   
 
 
 
 function writePassword() {
-  var passwordCharacters = generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumbers);
+  var password = generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumbers);
   // Write password to the #password input
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = passwordCharacters;
+  passwordText.value = password;
 }
 
 // Add event listener to generate button
