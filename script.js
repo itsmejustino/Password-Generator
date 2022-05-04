@@ -10,7 +10,7 @@ while (choiceLength < 8 || choiceLength > 128 ){
   choiceLength = window.prompt("Your password length did not meet required criteria. Please enter a number between 8-128 characters.");
 
   if(choiceLength>= 8 || choiceLength<= 128) {
-    break;
+   
   
   }
 }
