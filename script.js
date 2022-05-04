@@ -2,18 +2,26 @@
 var generateBtn = document.querySelector("#generate");
 
 //Assign criteria to each variable
-var upperCase;
-var lowerCase;
-var includeNumbers;
-var specialChar;
 
 // user input to select criteria for password length, case, special character, and numbers
 var choiceLength = window.prompt("How many characters would you like between 8-128 characters? (Okay for Yes and Cancel to Start Over)");
+
+//while loop checks for correct password length
+while (choiceLength < '8' || choiceLength > '128' ){
+  choiceLength = window.prompt("Your password length did not meet required criteria. Please enter a number between 8-128 characters.");
+
+  if(choiceLength> '7' || choiceLength< '129') {
+    break;
+    
+  }
+
+}
 var upperCase = window.confirm("Would you like to generate a password with Upper case letters? (Okay for Yes and Cancel for No)");
 var lowerCase = window.confirm("Would you like to generate a password with Lower case letters? (Okay for Yes and Cancel for No)");
 var specChar = window.confirm("Would you like to generate a password with special characters? (Okay for Yes and Cancel for No)");
 var withNumbers = window.confirm("Would you like to generate a password with numbers? (Okay for Yes and Cancel for No)");
-var passwordLength = parseInt(choiceLength);
+
+
 //ASCII chart for letters, numbers, and special characters
 
 // function smaller to larger number function increments by one from a given number set. This will be used to increment through the ASCII chart decimal numbers to corresponding letters and so on...
@@ -24,7 +32,7 @@ function smallerToLarger(smaller, larger) {
     array.push(i)
   }
 
-  return array
+  return array;
 
 }
 
@@ -42,41 +50,53 @@ var UPPERCASE = charUpperCase.map(num => String.fromCharCode(num));
 var LOWERCASE = charLowerCase.map(num => String.fromCharCode(num));
 var NUMBERS = charNumbers.map(num => String.fromCharCode(num));
 var SPEC_CHAR = specialChar.map(num => String.fromCharCode(num));
-//default value if cancelled in prompts
+
 
 //generate password function
-//console.log gives undefined. possible issue with return value to passwordCharacters or logic in if else statements
-function generatePassword(passwordLength, upperCase, lowerCase, specChar, withNumbers) {
+function generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumbers) {
 
-  let startCodes = LOWERCASE;
-  if (upperCase == true)
-  {startCodes = startCodes.concat(UPPERCASE);}
-  if (lowerCase == true) 
-  {startCodes = startCodes.concat(LOWERCASE);}
-  if (specChar == true)
-  {startCodes = startCodes.concat(SPEC_CHAR);}
-  if (withNumbers == true) 
-  {startCodes = startCodes.concat(NUMBERS);}
-else{
+  //The boolean statements will be true or false depending on the user input. These booleans are to add or not add the Uppercase, lowercase, special characters, and numbers. .concat will include the Charcode sets.
+  //assign default value to Startcode 
+  var startCodes;
 
-  startCodes;
-}
-  const passwordCharacters = []
-  for (let i = 0; i < passwordLength; i++) {
-    const characterCode = startCodes[Math.floor(Math.random() * startCodes.length)]
-   passwordCharacters.push(String.fromCharCode(characterCode))
+  if(upperCase==true ){
+    startCodes = UPPERCASE;
   }
-  return passwordCharacters.join('');
-}
+  
+  if (lowerCase ==true){
+    startCodes = startCodes.concat(LOWERCASE);
+  }
+  if (specChar==true ){
+    startCodes = startCodes.concat(SPEC_CHAR);
+  }
+
+  if (withNumbers==true ){
+    startCodes = startCodes.concat(NUMBERS);
+  }
+  
+  
+  //Assign characterCode variable to store ASCII characters array chosen by user.
+  
+
+  //for loop that will iterate through the characterCode array randomly to desired choiceLength then return the value to empty password array as a string. 
+ var password = []
+  for (let i = 0; i < choiceLength; i++) {
+    var characterCode = startCodes[Math.floor(Math.random() * startCodes.length)]
+    password.push(characterCode)
+    }
+     //returns value to generate password as string without separator
+    return password.join('');
+  }
+  
+
 
 
 function writePassword() {
-  var password = generatePassword(passwordLength, upperCase, lowerCase, specChar, withNumbers)
+  var passwordCharacters = generatePassword(choiceLength, upperCase, lowerCase, specChar, withNumbers);
   // Write password to the #password input
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  passwordText.value = passwordCharacters;
 }
 
 // Add event listener to generate button
