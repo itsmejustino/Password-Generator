@@ -5,12 +5,12 @@ var generateBtn = document.querySelector("#generate");
 
 // user input to select criteria for password length, case, special character, and numbers
 var choiceLength = window.prompt("How many characters would you like between 8-128 characters? (Okay for Yes and Cancel to Start Over)");
-//while loop checks for correct password length
+//while loop checks for correct password length and will loop until criteria is met
 while (choiceLength < 8 || choiceLength > 128 ){
   choiceLength = window.prompt("Your password length did not meet required criteria. Please enter a number between 8-128 characters.");
 
   if(choiceLength>= 8 || choiceLength<= 128) {
-  
+    break;
   
   }
 }
@@ -34,7 +34,7 @@ function smallerToLarger(smaller, larger) {
 
 }
 
-//Apply smalltoLarger function to characters to create an Array from ASCII chart. Array will creat a string of numbers 
+//Apply smallToLarger function to characters to create an Array from ASCII chart. Array will creat a string of numbers 
 var charUpperCase = smallerToLarger(65, 90);
 var charLowerCase = smallerToLarger(97, 122);
 var charNumbers = smallerToLarger(48, 57);
