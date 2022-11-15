@@ -20,6 +20,7 @@
 
 ## Demo
 ![mainpage](https://github.com/itsmejustino/Password-Generator/blob/main/assets/gp-main.PNG?raw=true)
+![prompt](https://github.com/itsmejustino/Password-Generator/blob/main/assets/gp-prompt.PNG?raw=true)
 ## Contribute
   If you would like to contribute please send a pull request.
 
