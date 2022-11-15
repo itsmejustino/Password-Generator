@@ -19,11 +19,11 @@
   Using the application must happen within the web browser. Upon visitng the web page a series of questions will be prompted, once they are answered the user will be able to generate a password.
 
 ## Demo
-App Example
+App Example<br>
 ![mainpage](https://github.com/itsmejustino/Password-Generator/blob/main/assets/gp-main.PNG?raw=true)<br><br>
 
-Prompt Example
-![prompt](https://github.com/itsmejustino/Password-Generator/blob/main/assets/gp-prompt.PNG?raw=true)
+Prompt Example<br>
+![prompt](https://github.com/itsmejustino/Password-Generator/blob/main/assets/gp-prompt.PNG?raw=true)<br><br>
 ## Contribute
   If you would like to contribute please send a pull request.
 
