@@ -14,7 +14,7 @@
 ## License
   [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ## Install-Instructions 
-  To install this application simply fork the repository and open index.html with live server or visit it in browser from the IDE of your choice.
+  To install this application simply clone the repository and open index.html with live server or visit it in browser from the IDE of your choice.
 ## Usage-Info
   Using the application must happen within the web browser. Upon visitng the web page a series of questions will be prompted, once they are answered the user will be able to generate a password.
 
